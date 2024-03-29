@@ -51,7 +51,7 @@ while True:
 
     dbcursor = mydb.cursor()
 
-    sql = f'INSERT INTO PSEdata.data VALUES ({status},{timestamp},"{unit}",{heatPower},{water},{wind},{solar},{other},{production},{consumption},{frequency}, {SE[0]}, {SE[2]}, {SE[1]}, {DE[0]}, {DE[2]}, {DE[1]}, {CZ[0]}, {CZ[2]}, {CZ[1]}, {SK[0]}, {SK[2]}, {SK[1]}, {UA[0]}, {UA[2]}, {UA[1]}, {LT[0]}, {LT[2]}, {LT[1]}, 0);'
+    sql = f'INSERT INTO PSEdata.data VALUES ({status},{timestamp},"{unit}",{heatPower},{water},{wind},{solar},{other},{production},{consumption},{frequency}, {SE[0]}, {SE[2]}, {SE[1]}, {DE[0]}, {DE[2]}, {DE[1]}, {CZ[0]}, {CZ[2]}, {CZ[1]}, {SK[0]}, {SK[2]}, {SK[1]}, {UA[0]}, {UA[2]}, {UA[1]}, {LT[0]}, {LT[2]}, {LT[1]}, 0, 0);'
     #print(sql)
     dbcursor.execute(sql)
     mydb.commit()
