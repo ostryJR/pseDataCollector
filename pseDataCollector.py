@@ -51,7 +51,7 @@ while True:
 
     dbcursor = mydb.cursor()
 
-    sql = f'INSERT INTO PSEdata.data VALUES ({status},{timestamp},"{unit}",{heatPower},{water},{wind},{solar},{other},{production},{consumption},{frequency}, {SE[0]}, {SE[2]}, {SE[1]}, {DE[0]}, {DE[2]}, {DE[1]}, {CZ[0]}, {CZ[2]}, {CZ[1]}, {SK[0]}, {SK[2]}, {SK[1]}, {UA[0]}, {UA[2]}, {UA[1]}, {LT[0]}, {LT[2]}, {LT[1]}, 0, 0);'
+    sql = f'INSERT INTO PSEdata.data(`status`, `timestamp`, `unit`, `cieplne`, `wodne`, `wiatrowe`, `pv`, `inne`, `generacja`, `zapotrzebowanie`, `czestotliwosc`, `SEact`, `SEplan`, `SEparallel`, `DEact`, `DEplan`, `DEparallel`, `CZact`, `CZplan`, `CZparallel`, `SKact`, `SKplan`, `SKparallel`, `UAact`, `UAplan`, `UAparallel`, `LTact`, `LTplan`, `LTparallel`) VALUES ({status},{timestamp},"{unit}",{heatPower},{water},{wind},{solar},{other},{production},{consumption},{frequency}, {SE[0]}, {SE[2]}, {SE[1]}, {DE[0]}, {DE[2]}, {DE[1]}, {CZ[0]}, {CZ[2]}, {CZ[1]}, {SK[0]}, {SK[2]}, {SK[1]}, {UA[0]}, {UA[2]}, {UA[1]}, {LT[0]}, {LT[2]}, {LT[1]});'
     #print(sql)
     dbcursor.execute(sql)
     mydb.commit()
