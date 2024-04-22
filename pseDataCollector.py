@@ -8,17 +8,26 @@ import datetime
 import dbconnect as dbc
 
 url = 'https://www.pse.pl/transmissionMapService'
+print("PSE Data Collector Started")
 
-while True:
+
+def dbconn():
     try:
         mydb = mysql.connector.connect(
             host=dbc.host,
             port=dbc.port,
             user=dbc.user,
-            password=dbc.password#.encode(),
+            password=dbc.password
         )
+        return mydb
     except mysql.connector.Error as err:
         print(err)
+    
+if dbconn():
+    print("Connected to DataBase")
+
+while True:
+    mydb = dbconn()
 
     resp = requests.get(url=url).json()
     #print(resp)
