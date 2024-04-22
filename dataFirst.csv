@@ -1,2 +1,0 @@
-status,timestamp,cieplne,wodne,wiatrowe,pv,inne,generacja,zapotrzebowanie,czestotliwosc,SEact, SEplan, SEparallel,DEact, DEplan, DEparallel,CZact, CZplan, CZparallel,SKact, SKplan, SKparallel,UAact, UAplan, UAparallel,LTact, LTplan, SLTparallel,
-0,1711634595442,11805,306,5741,4251,0,22102,21956,50.016,-204,False,0,868,True,1245,-751,True,-544,-132,True,48,False,0,0,False,0,
