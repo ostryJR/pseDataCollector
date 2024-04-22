@@ -1,15 +1,16 @@
 import requests
 import json
 import mysql.connector
-import hashlib as hs
 import time as t
-import datetime
+
+import signal
 
 import dbconnect as dbc
 
 url = 'https://www.pse.pl/transmissionMapService'
-print("PSE Data Collector Started")
+print("[App]PSE Data Collector Started")
 
+working = True
 
 def dbconn():
     try:
@@ -22,11 +23,16 @@ def dbconn():
         return mydb
     except mysql.connector.Error as err:
         print(err)
-    
-if dbconn():
-    print("Connected to DataBase")
+def signal_handler(sig, _frame):# stopping execution
+    print(f'[App]Received signal {sig} - all actions will be stopped')
+    global working
+    working = False
 
-while True:
+if dbconn():
+    print("[App]Connected to DataBase")
+
+while working:
+    signal.signal(signal.SIGTERM, signal_handler)
     mydb = dbconn()
 
     resp = requests.get(url=url).json()
@@ -68,3 +74,5 @@ while True:
 
     dbcursor.close()
     t.sleep(10)
+
+print(f'[App]App stopped')
